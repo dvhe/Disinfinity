@@ -1,2 +1,2 @@
-# TBN
+# Disinfinity
 Development team repository.
