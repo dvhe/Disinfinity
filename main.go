@@ -11,5 +11,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
-    router.HandleFunc("/", handler)
+	router.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", router)
 }
