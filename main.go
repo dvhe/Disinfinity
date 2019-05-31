@@ -1,16 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	http.FileServer(http.Dir("./public"))
+}
+
 func main() {
-	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("[PLACEHOLDER}"))
-	})
-
-	fmt.Println("127.0.0.1:3000")
-
+	http.HandleFunc("/", handler)
 	http.ListenAndServe(":3000", nil)
 }
