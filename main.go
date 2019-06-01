@@ -1,16 +1,13 @@
 package main
 
 import (
-	"net/http"
-	"github.com/gorilla/mux"
+    "log"
+    "net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	http.FileServer(http.Dir("./public"))
-}
-
 func main() {
-	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/", handler)
-	http.ListenAndServe(":3000", router)
+
+    router := NewRouter()
+
+    log.Fatal(http.ListenAndServe(":3000", router))
 }
