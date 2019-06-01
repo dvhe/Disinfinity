@@ -34,6 +34,6 @@ var routes = Routes{
         "Index",
         "GET",
 		"/",
-		index,
+		Index,
 	},
 }
