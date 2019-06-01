@@ -6,5 +6,6 @@ import (
 
 //Index : serves default main page or whatever
 func Index(w http.ResponseWriter, r *http.Request) {
-	http.FileServer(http.Dir("./Website/Frontend/public"))
+	fs := http.FileServer(http.Dir("Website/Frontend/public"))
+	fs.ServeHTTP(w,r)
 }
